@@ -43,25 +43,15 @@ int main() {
   
   criaLista();
 
-  instancia(&aluno, "João", 5.8, 4);
-  insereInicio(aluno);
+  int opt = 1;
+  char * nome;
+  int nota, turma;
 
-  instancia(&aluno, "Maria", 5.9, 3);
-  insereFim(aluno);
-
-  instancia(&aluno, "Paula", 5.7, 2);
-  insereFim(aluno);
-
-  instancia(&aluno, "Carlos", 6.0, 2);
-  inserePosicao(aluno, 3);
-
-
-  imprimeLista(0);
-
-  removeDado("Maria");
-  removeDado("Paula");
-  
-  imprimeLista(0);
+  while (opt != 0) {
+    printf("Digite a opção desejada:\n[1] - Inserir no ínicio da Lista\n[2] - Inserir no fim da Lista\n[3] - Inserir na posição desejada da Lista\n[4] - Mostrar a Lista\n[5] Mostrar a Lista ao contrário\n[0] - Encerrar o programa");
+    printf("Digite o nome, nota e turma: \n");
+    scanf("%c%d%d", &nome, &nota, &turma);
+  }
 
   apagaLista();
 
