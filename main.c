@@ -43,21 +43,24 @@ int main() {
 
   int opt = 1;
   char * nome;
-  int nota, turma, pos;
+  int turma, pos;
+  float nota;
 
-  while (opt != 0) {
-    printf("Digite a opção desejada:\n[1] - Inserir no inicio da Lista\n[2] - Inserir no fim da Lista\n[3] - Inserir na posição desejada da Lista\n[4] - Mostrar a Lista\n[5] Mostrar a Lista ao contrário\n[6] - Excluir item da lista\n[0] - Encerrar o programa");
+  do {
+    printf("Digite a opção desejada:\n[1] - Inserir no inicio da Lista\n[2] - Inserir no fim da Lista\n[3] - Inserir na posição desejada da Lista\n[4] - Mostrar a Lista\n[5] Mostrar a Lista ao contrário\n[6] - Excluir item da lista\n[0] - Encerrar o programa\n Sua opção: ");
+    scanf("%d", opt);
+
     switch (opt) {
       case 1:
         printf("Digite o nome, nota e turma: \n");
-        scanf("%c %.2f %d", &nome, &nota, &turma);
+        scanf("%s %f %d", nome, &nota, &turma);
         instancia(&aluno, nome, nota, turma);
         insereInicio(aluno);
         break;
       
       case 2:
         printf("Digite o nome, nota e turma: \n");
-        scanf("%c %.2f %d", &nome, &nota, &turma);
+        scanf("%s %f %d", nome, &nota, &turma);
         instancia(&aluno, nome, nota, turma);
         insereFim(aluno);
         break;
@@ -66,7 +69,7 @@ int main() {
         printf("Digite a posição que deseja inserir: ");
         scanf("%d", pos);
         printf("Digite o nome, nota e turma: \n");
-        scanf("%c %.2f %d", &nome, &nota, &turma);
+        scanf("%s %f %d", nome, &nota, &turma);
         instancia(&aluno, nome, nota, turma);
         inserePosicao(aluno, pos);
         break;
@@ -80,10 +83,19 @@ int main() {
         break;
 
       case 6:
-        
+        printf("Digite o nome que irá remover: ");
+        scanf("%c", nome);
+        removeDado(nome);
+        break;
+      case 0:
+        break;
+
+      default:
+        printf("Opção inválida.\n");
+        break;
     }
-  
-  }
+
+  } while (opt != 0);
 
   apagaLista();
 
