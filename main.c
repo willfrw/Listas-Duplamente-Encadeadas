@@ -34,9 +34,7 @@ void lineMsg();
 
 int main() {
   lineMsg();
-  printf("Atividade de Produção\nDisciplina: Estrutura de "
-         "Dados\nCódigo:G23100192\nAluno: William Freire Wang\nMatrícula: "
-         "202221378\n");
+  printf("Lista Duplamente Encadeada");
   lineMsg();
 
   Aluno aluno;
@@ -45,12 +43,46 @@ int main() {
 
   int opt = 1;
   char * nome;
-  int nota, turma;
+  int nota, turma, pos;
 
   while (opt != 0) {
-    printf("Digite a opção desejada:\n[1] - Inserir no ínicio da Lista\n[2] - Inserir no fim da Lista\n[3] - Inserir na posição desejada da Lista\n[4] - Mostrar a Lista\n[5] Mostrar a Lista ao contrário\n[0] - Encerrar o programa");
-    printf("Digite o nome, nota e turma: \n");
-    scanf("%c%d%d", &nome, &nota, &turma);
+    printf("Digite a opção desejada:\n[1] - Inserir no inicio da Lista\n[2] - Inserir no fim da Lista\n[3] - Inserir na posição desejada da Lista\n[4] - Mostrar a Lista\n[5] Mostrar a Lista ao contrário\n[6] - Excluir item da lista\n[0] - Encerrar o programa");
+    switch (opt) {
+      case 1:
+        printf("Digite o nome, nota e turma: \n");
+        scanf("%c %.2f %d", &nome, &nota, &turma);
+        instancia(&aluno, nome, nota, turma);
+        insereInicio(aluno);
+        break;
+      
+      case 2:
+        printf("Digite o nome, nota e turma: \n");
+        scanf("%c %.2f %d", &nome, &nota, &turma);
+        instancia(&aluno, nome, nota, turma);
+        insereFim(aluno);
+        break;
+      
+      case 3:
+        printf("Digite a posição que deseja inserir: ");
+        scanf("%d", pos);
+        printf("Digite o nome, nota e turma: \n");
+        scanf("%c %.2f %d", &nome, &nota, &turma);
+        instancia(&aluno, nome, nota, turma);
+        inserePosicao(aluno, pos);
+        break;
+
+      case 4:
+        imprimeLista(0);
+        break;
+      
+      case 5:
+        imprimeLista(1);
+        break;
+
+      case 6:
+        
+    }
+  
   }
 
   apagaLista();
